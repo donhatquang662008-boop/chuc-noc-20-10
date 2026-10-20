@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gửi noc ngày 20/10 💗</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; overflow-x: hidden;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #7b2347;
+      background: linear-gradient(135deg, #ffe2ec, #fff4f7 48%, #ffd1df);
+      display: grid; place-items: center; padding: 24px;
+    }
+    .hearts { position: fixed; inset: 0; overflow: hidden; pointer-events: none; }
+    .heart {
+      position: absolute; bottom: -50px; color: #f06b9a;
+      animation: floatUp linear infinite; opacity: .65;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0) rotate(0deg); opacity: 0; }
+      15% { opacity: .7; }
+      to { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
+    }
+    .card {
+      position: relative; width: min(560px, 100%); text-align: center;
+      padding: 38px 28px; border: 1px solid #ffffffc9; border-radius: 28px;
+      background: #ffffffd9; box-shadow: 0 18px 60px #b64a7130;
+      backdrop-filter: blur(8px);
+    }
+    .flower { font-size: 54px; animation: sway 2.5s ease-in-out infinite; }
+    @keyframes sway { 0%,100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+    .eyebrow { margin: 10px 0; color: #d64f82; font-weight: 700; letter-spacing: 2px; font-size: 13px; }
+    h1 { font-size: clamp(30px, 7vw, 43px); line-height: 1.15; margin: 10px 0 14px; color: #c52f6b; }
+    .subtitle { font-size: 17px; line-height: 1.7; margin: 0 auto 22px; max-width: 420px; }
+    .button {
+      border: 0; border-radius: 999px; padding: 14px 24px; cursor: pointer;
+      color: white; background: linear-gradient(90deg, #e84f88, #c92f72);
+      font-size: 16px; font-weight: 700; box-shadow: 0 8px 20px #d9477a40;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 12px 24px #d9477a55; }
+    .letter {
+      display: none; margin-top: 24px; padding: 22px; border-radius: 20px;
+      background: #fff0f5; line-height: 1.85; text-align: left;
+      animation: appear .6s ease both;
+    }
+    .letter.show { display: block; }
+    @keyframes appear { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .signature { text-align: right; font-weight: 700; color: #c52f6b; margin-top: 14px; }
+    .footer { font-size: 12px; color: #b35a7b; margin-top: 22px; }
+    .sparkle { position: fixed; pointer-events: none; font-size: 22px; animation: pop 1s ease-out forwards; }
+    @keyframes pop { from { transform: scale(.4); opacity: 1; } to { transform: translateY(-90px) scale(1.4); opacity: 0; } }
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+  <main class="card">
+    <div class="flower">🌷💗🌷</div>
+    <p class="eyebrow">20 THÁNG 10 · NGÀY PHỤ NỮ VIỆT NAM</p>
+    <h1>Chúc mừng 20/10,<br><span id="nameHeading">cô gái của anh</span> 💖</h1>
+    <p class="subtitle">
+      Hôm nay là ngày đặc biệt để gửi đến em một chút ngọt ngào,
+      một chút yêu thương và thật nhiều nụ cười.
+    </p>
+    <button class="button" id="openBtn">💌 Bấm vào đây nè</button>
+    <section class="letter" id="letter">
+      <p>Gửi <strong id="nameLetter">em yêu</strong> của anh, 💕</p>
+      <p>
+        Chúc em ngày 20/10 luôn vui vẻ, xinh tươi theo cách riêng của em,
+        lúc nào cũng bình an và gặp thật nhiều điều tốt đẹp.
+        Mong rằng những ngày bình thường của em cũng sẽ có thật nhiều lý do để mỉm cười.
+      </p>
+      <p>
+        Anh biết những chuyện trong quá khứ đã làm em buồn nhiều và anh sẽ cố gắng bù đắp lại những tổn thương cho em.
+        Anh không hứa lúc nào cũng hoàn hảo, nhưng anh sẽ cố gắng quan tâm em nên là hãy cho anh một cơ hội nữa nhaaaa! 💗
+      </p>
+      <p>Chúc cô gái anh thương có một ngày 20/10 thật hạnh phúc nhé!</p>
+      <p class="signature">Thương em nhiều lắm 💗</p>
+    </section>
+    <p class="footer">Made with love · 20/10 💐</p>
+  </main>
+  <script>
+    // ✏️ Đổi tên người yêu ở đây:
+    const tenNguoiYeu = "noc";
+    document.title = `Gửi ${tenNguoiYeu} ngày 20/10 💗`;
+    document.getElementById("nameHeading").textContent = tenNguoiYeu;
+    document.getElementById("nameLetter").textContent = tenNguoiYeu;
+
+    const hearts = document.getElementById("hearts");
+    const symbols = ["💗", "💕", "💖", "🌸", "✨"];
+    for (let i = 0; i < 24; i++) {
+      const el = document.createElement("span");
+      el.className = "heart";
+      el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      el.style.left = Math.random() * 100 + "%";
+      el.style.animationDuration = (7 + Math.random() * 9) + "s";
+      el.style.animationDelay = (-Math.random() * 14) + "s";
+      el.style.fontSize = (14 + Math.random() * 18) + "px";
+      hearts.appendChild(el);
+    }
+
+    document.getElementById("openBtn").addEventListener("click", function () {
+      document.getElementById("letter").classList.add("show");
+      this.textContent = "💖 Chúc em luôn hạnh phúc nhé!";
+      this.disabled = true;
+      for (let i = 0; i < 18; i++) {
+        const s = document.createElement("span");
+        s.className = "sparkle";
+        s.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        s.style.left = (10 + Math.random() * 80) + "vw";
+        s.style.top = (45 + Math.random() * 35) + "vh";
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), 1100);
+      }
+    });
+  </script>
+</body>
+</html>
